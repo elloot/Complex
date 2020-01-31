@@ -4,13 +4,19 @@
  * Author: Elliot Duchek
  */
 public class Complex {
-    private double a;
-    private double b;
+    private double real;
+    private double imag;
 
     public Complex(double a, double b) {
-        this.a = a;
-        this.b = b;
+        this.real = a;
+        this.imag = b;
     }
 
+    public double getReal() {
+        return real;
+    }
 
+    public double getImag() {
+        return imag;
+    }
 }
