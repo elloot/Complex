@@ -29,6 +29,18 @@ public class Complex {
                 "Im(" + b + 'i' + ')';
     }
 
+    public Complex add(Object o) {
+        Complex complex = (Complex) o;
+
+        double real = getReal();
+        double imag = getImag();
+
+        double real2 = complex.getReal();
+        double imag2 = complex.getImag();
+
+        return new Complex((real + real2), (imag + imag2));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(a, b);
@@ -47,5 +59,7 @@ public class Complex {
         Complex y = new Complex(2,3);
 
         System.out.println(x.toString());
+
+        System.out.println(x.add(y).toString());
     }
 }
