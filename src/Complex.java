@@ -25,7 +25,8 @@ public class Complex {
 
     @Override
     public String toString() {
-        return "" + a + ' ' + b + 'i';
+        return "Re(" + a + ") " +
+                "Im(" + b + 'i' + ')';
     }
 
     @Override
