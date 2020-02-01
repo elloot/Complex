@@ -24,6 +24,11 @@ public class Complex {
     }
 
     @Override
+    public String toString() {
+        return "" + a + ' ' + b + 'i';
+    }
+
+    @Override
     public int hashCode() {
         return Objects.hash(a, b);
     }
@@ -40,5 +45,6 @@ public class Complex {
         Complex x = new Complex(2,3);
         Complex y = new Complex(2,3);
 
+        System.out.println(x.toString());
     }
 }
