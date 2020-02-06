@@ -36,27 +36,27 @@ public class Complex {
         //casts the 'y'-object from x.add('y') to a Complex number
         Complex complex = (Complex) o;
 
-        //assigns the real and imaginary parts of the complex number x to variables
-        double real = getReal();
-        double imag = getImag();
-
-        //same thing for y
-        double real2 = complex.getReal();
-        double imag2 = complex.getImag();
-
         //does the math and returns a Complex number
-        return new Complex((real + real2), (imag + imag2));
+        return new Complex((getReal() + complex.getReal()), (getReal() + complex.getReal()));
     }
 
+    public Complex arg() {
+
+        return null;
+    }
+
+    //returns the hash code of the complex number
     @Override
     public int hashCode() {
         return Objects.hash(a, b);
     }
 
+    //returns the real part of the complex number
     public double getReal() {
         return a;
     }
 
+    //returns the imaginary part of the complex number
     public double getImag() {
         return b;
     }
