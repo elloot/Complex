@@ -40,9 +40,21 @@ public class Complex {
         return new Complex((getReal() + complex.getReal()), (getReal() + complex.getReal()));
     }
 
-    public Complex arg() {
+    public double arg() {
+        if (getImag() == 0) {
+            throw new ArithmeticException("The imaginary part is 0");
+        } else if (getReal() == 0) {
 
-        return null;
+        } else if (getReal() > 0) {
+
+        } else {
+            if (getImag() < 0) {
+
+            } else {
+
+            }
+        }
+        return 1;
     }
 
     //returns the hash code of the complex number
