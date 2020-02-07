@@ -27,17 +27,18 @@ public class Complex {
     //returns the input complex number as a correctly formatted string
     @Override
     public String toString() {
-        return "Re(" + a + ") " +
-                "Im(" + b + 'i' + ')';
+        return a + " + " + b + 'i';
     }
 
     //returns the sum of two complex numbers
-    public Complex add(Object o) {
-        //casts the 'y'-object from x.add('y') to a Complex number
-        Complex complex = (Complex) o;
-
+    public Complex add(Complex complex) {
         //does the math and returns a Complex number
-        return new Complex((getReal() + complex.getReal()), (getReal() + complex.getReal()));
+        return new Complex((getReal() + complex.getReal()), (getImag() + complex.getImag()));
+    }
+
+    //returns the product of two complex numbers
+    public Complex multiply(Complex complex) {
+        return new Complex(((getReal()*complex.getReal())-(getImag()*complex.getImag())),((getImag()*complex.getReal())+(getReal()*complex.getImag())));
     }
 
     //returns the argument for the complex number in radians
@@ -50,9 +51,9 @@ public class Complex {
             return Math.atan((getImag()/getReal()));
         } else {
             if (getImag() < 0) {
-                return Math.atan(((getImag()/getReal())-Math.PI));
+                return Math.atan((getImag()/getReal()))-Math.PI;
             } else {
-                return Math.atan(((getImag()/getReal())+Math.PI));
+                return Math.atan((getImag()/getReal()))+Math.PI;
             }
         }
     }
@@ -73,7 +74,7 @@ public class Complex {
         return b;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Complex x = new Complex(2,3);
         Complex y = new Complex(2,3);
 
@@ -82,5 +83,6 @@ public class Complex {
         System.out.println(x.add(y).toString());
 
         System.out.println(x.arg());
-    }
+    }*/
+
 }
