@@ -40,21 +40,21 @@ public class Complex {
         return new Complex((getReal() + complex.getReal()), (getReal() + complex.getReal()));
     }
 
+    //returns the argument for the complex number in radians
     public double arg() {
-        if (getImag() == 0) {
+        if (getImag() == 0 && getReal() == 0) {
             throw new ArithmeticException("The imaginary part is 0");
         } else if (getReal() == 0) {
-
+            return Math.signum(getImag())*(Math.PI/2);
         } else if (getReal() > 0) {
-
+            return Math.atan((getImag()/getReal()));
         } else {
             if (getImag() < 0) {
-
+                return Math.atan(((getImag()/getReal())-Math.PI));
             } else {
-
+                return Math.atan(((getImag()/getReal())+Math.PI));
             }
         }
-        return 1;
     }
 
     //returns the hash code of the complex number
@@ -80,5 +80,7 @@ public class Complex {
         System.out.println(x.toString());
 
         System.out.println(x.add(y).toString());
+
+        System.out.println(x.arg());
     }
 }
